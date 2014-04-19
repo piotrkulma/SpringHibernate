@@ -26,6 +26,11 @@ public class MainPageController {
 	
 	private Logger logger = Logger.getLogger(MainPageController.class.getName());
 
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public String showMainPage() {	
+		return "redirect:mainPage";
+	}
+	
 	@RequestMapping(value="/mainPage", method=RequestMethod.GET)
 	public String showMainPage(@RequestParam(value="user", required=false) User user, Model model) {	
 		model.addAttribute("user", user!=null?user:new User());
