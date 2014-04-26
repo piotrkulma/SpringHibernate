@@ -8,6 +8,7 @@
 <title>Spring4 MVC -HelloWorld</title>
 </head>
 <body>
+	<a href="creepy">creepy</a><br/><br/>
 	<c:choose>
 		<c:when test="${fn:length(users)> 0}">
 			<table>

@@ -4,36 +4,31 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import peter.model.User;
 
 @Repository
-public class UserDao implements IUserDao {
-	@Autowired
-	public SessionFactory sessionFactory;
-	
-	public UserDao() {
-	}
+public class UserDao extends AbstractDao<User> implements IUserDao {	
+	public UserDao() {}
 	
 	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<User> getAllUsers() {
-		Query query = getCurrentSession().createQuery("FROM " + User.class.getName());
+		Query query = createQuery("FROM " + User.class.getName());
 		List<User> users = query.list();
 		return users;
 	}
 	
 	@Transactional
 	public void addUser(User user) {
-		getCurrentSession().save(user);
+		//tutaj dzieje siê zajebiste przetwarzanie usera
+		saveEntity(user);
 	}
-
-	@Override
-	public Session getCurrentSession() {
-		return sessionFactory.getCurrentSession();
+	
+	@Transactional
+	public void deleteUser(User user) {
+		//tutaj dzieje siê zajebiste przetwarzanie usera
+		deleteEntity(user);
 	}
 }
