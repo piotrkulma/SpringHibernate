@@ -20,23 +20,14 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
-import peter.dao.IUserDao;
-import peter.dao.UserDao;
-
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
 @PropertySource({ "classpath:/peter/configuration/db.properties" })
-@ComponentScan("peter.controller")
+@ComponentScan({"peter.controller", "peter.dao"})
 public class Config {	
 	@Autowired
 	private Environment env;
-	
-	@Bean 
-	public IUserDao userDao() {
-		IUserDao userDao = new UserDao(); 		
-		return userDao;
-	}
 	
 	@Bean    
 	public MessageSource messageSource() {
