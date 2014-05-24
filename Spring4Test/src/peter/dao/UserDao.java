@@ -22,13 +22,13 @@ public class UserDao extends AbstractDao<User> implements IUserDao {
 	
 	@Transactional
 	public void addUser(User user) {
-		//tutaj dzieje siê zajebiste przetwarzanie usera
+		//tutaj dzieje sie zajebiste przetwarzanie usera
 		saveEntity(user);
 	}
 	
 	@Transactional
 	public void deleteUser(User user) {
-		//tutaj dzieje siê zajebiste przetwarzanie usera
+		//tutaj dzieje sie zajebiste przetwarzanie usera
 		deleteEntity(user);
 	}
 }

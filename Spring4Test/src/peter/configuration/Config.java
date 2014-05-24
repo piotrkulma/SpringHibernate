@@ -2,7 +2,7 @@ package peter.configuration;
 
 import java.util.Properties;
 
-import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
+import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -23,7 +23,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@PropertySource({ "classpath:/peter/configuration/db.properties" })
+@PropertySource({ "classpath:db.properties" })
 @ComponentScan({"peter.controller", "peter.dao"})
 public class Config {	
 	@Autowired
@@ -48,7 +48,7 @@ public class Config {
 	//PostgreSQL and Hibernate4
 	@Bean 
 	public BasicDataSource dataSource() {
-		BasicDataSource dataSource = new BasicDataSource();
+        BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
 		dataSource.setUrl(env.getProperty("jdbc.url"));
 		dataSource.setUsername(env.getProperty("jdbc.user"));
