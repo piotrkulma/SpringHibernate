@@ -10,9 +10,17 @@
               <directory>src/main/resources</directory>
           </resource>
       </resources>
-
     <sourceDirectory>src</sourceDirectory>
     <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>2.4</version>
+            <configuration>
+                <webappDirectory>/home/peter/Dokumenty/</webappDirectory>
+            </configuration>
+        </plugin>
+
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.1</version>
@@ -29,7 +37,6 @@
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
-
         <plugin>
             <groupId>org.apache.tomcat.maven</groupId>
             <artifactId>tomcat7-maven-plugin</artifactId>
