@@ -34,6 +34,8 @@ public class MainPageController {
 	@RequestMapping(value="/mainPage", method=RequestMethod.GET)
 	public String showMainPage(@RequestParam(value="user", required=false) User user, Model model) {	
 		model.addAttribute("user", user!=null?user:new User());
+
+        logger.info("Podmienione za pomocą JREBEL");
 		return "mainPage";
 	}
 	
