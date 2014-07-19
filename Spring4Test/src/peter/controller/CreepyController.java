@@ -12,8 +12,7 @@ public class CreepyController {
 	private Logger logger = Logger.getLogger(CreepyController.class.getName());
 
 	@RequestMapping(value="/creepy", method=RequestMethod.GET)
-	public String showCreepy() {	
-		logger.info("show creepy");
+	public String showCreepy() {
 		return "creepy";
 	}
 }
